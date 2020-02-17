@@ -102,7 +102,7 @@ public class GmailTest {
 	
     @Test
     public void testExecution() throws IOException {
-        System.setProperty("webdriver.chrome.driver", "/home/devops/chromdriver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/home/devops/chromedriver/chromedriver");
         // Add options to Google Chrome. The window-size is important for responsive sites
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
