@@ -17,7 +17,7 @@ def rtMaven = Artifactory.newMavenBuild()
 
        stage('git checkout'){
 
-        git 'https://github.com/pankaj750384/OSCAutomation.git'
+        git 'https://github.com/pankaj750384/SeleniumAuto.git'
 
              
 
