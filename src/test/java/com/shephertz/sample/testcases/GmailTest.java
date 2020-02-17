@@ -2,10 +2,10 @@ package com.shephertz.sample.testcases;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import com.shephertz.sample.pages.GmailSignInPage;
@@ -108,9 +108,22 @@ public class GmailTest {
         options.addArguments("headless");
         options.addArguments("window-size=1200x600");
         WebDriver driver = new ChromeDriver(options);
-        driver.get("http://seleniumhq.org");
+        driver.get("http://accounts.google.com/");
         // a guarantee that the test was really executed
 //        driver.findElement(By.id("q")).isDisplayed();
+        
+        SignInPage =PageFactory.initElements(driver, GmailSignInPage.class);
+		System.out.println("======testLoginGmail=====Started=");
+		SignInPage.txt_Email.sendKeys("test.shephertz@gmail.com");
+		System.out.println("Email Enterd");
+		SignInPage.btn_next.click();
+		System.out.println("Click Next and wait for some time");
+//		Thread.sleep(1000);
+		SignInPage.txt_Psw_Email.sendKeys("test.shephertz");
+		System.out.println("Password Enterd");
+		SignInPage.btn_next2.click();
+
+		System.out.println("=====Click Sign in=");
         driver.quit();
     }
 
