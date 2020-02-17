@@ -27,22 +27,21 @@ public class GmailTest {
 	static WebDriver driver;
 	GmailSignInPage SignInPage;
 
-	
-
-
-	@BeforeTest
-	public void beforeTest() {
+	@BeforeClass
+	public void setUp() {
 		WebDriverManager.chromedriver().setup();
-		
-		
+
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+	
 		ChromeOptions options = new ChromeOptions();
-      //  options.addArguments("headless");
-		driver = new ChromeDriver();
+		options.addArguments("headless");
+
+		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.get("https://accounts.google.com/");
+		driver.get("http://accounts.google.com/");
 		SignInPage = PageFactory.initElements(driver, GmailSignInPage.class);
 	}
-	
+
 	@Test
 	public void testLoginGmail() throws InterruptedException {
 		SignInPage.txt_Email.sendKeys("test.shephertz@gmail.com");
@@ -51,10 +50,9 @@ public class GmailTest {
 		SignInPage.txt_Psw_Email.sendKeys("test.shephertz");
 		SignInPage.btn_next2.click();
 	}
-	
 
-	@AfterTest
-	public void afterTest() {
+	@AfterClass
+	public void afterClass() {
 		driver.close();
 		driver.quit();
 	}
