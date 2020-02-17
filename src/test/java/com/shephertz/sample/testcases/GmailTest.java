@@ -39,7 +39,7 @@ public class GmailTest {
       //  options.addArguments("headless");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.get("https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1");
+		driver.get("https://accounts.google.com/");
 		SignInPage = PageFactory.initElements(driver, GmailSignInPage.class);
 	}
 	
