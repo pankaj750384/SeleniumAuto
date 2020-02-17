@@ -7,7 +7,7 @@
 
     <classes>
 
-      <class name="com.shephertz.sample.testcases.GmailTest"/>
+      <class name="com.shephertz.sample.testcases.SignInPageTest"/>
 
     </classes>
 
