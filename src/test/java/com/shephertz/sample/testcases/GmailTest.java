@@ -1,6 +1,7 @@
 package com.shephertz.sample.testcases;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -117,6 +118,7 @@ public class GmailTest {
         options.addArguments("--disable-gpu"); //https://stackoverflow.com/questions/51959986/how-to-solve-selenium-chromedriver-timed-out-receiving-message-from-renderer-exc
 //        driver = new ChromeDriver(options);
         driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://accounts.google.com/");
         // a guarantee that the test was really executed
 //        driver.findElement(By.id("q")).isDisplayed();
